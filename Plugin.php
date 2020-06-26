@@ -1,9 +1,9 @@
 <?php
 /**
- * Handsome主题的夜间模式插件<br/>问题反馈：<a target="_blank" href="https://www.bsgun.cn/684">插件主页</a>
+ * <strong style="color:#9e5df3;">Handsome主题的夜间模式插件<br/>问题反馈：<a target="_blank" href="https://www.bsgun.cn/684">插件主页</a></strong>
  * @package CaNight
- * @author Catalpa
- * @version 1.1
+ * @author Catalpa 
+ * @version 1.2
  * @link https://www.bsgun.cn/684
  * */
 class CaNight_Plugin implements Typecho_Plugin_Interface {
@@ -20,6 +20,28 @@ class CaNight_Plugin implements Typecho_Plugin_Interface {
     }
     
 	public static function config(Typecho_Widget_Helper_Form $form) {
+	    //定义插件当前版本号
+        $client_version = 20200626;
+        //获取服务器上面的版本号
+        $data = file_get_contents('https://api.bsgun.cn/AC.json');
+        /*获取json数据*/
+        $result = json_decode($data, true);
+        /*获取输出类型*/
+        $select = $result['select'];
+        //最新版本号
+        $server_version = $result['version'];
+        //下载地址
+        $url = $result['url'];
+        //头部信息
+        $title = $result['title'];
+        //更新说明
+        $tips = $result['tips'];
+        $styleUrl = Helper::options()->pluginUrl . '/CaNight/style.css';
+        echo '<link rel="stylesheet" href=" '. $styleUrl .'"/>';
+        if ($client_version < $server_version) {
+        	echo '<div class="container"><div class="inner"><span></span><h1>'. $title .'</h1><p style="color: #ff1313;">'. $tips .'</p><p style="color: blue;">最新版下载地址：<a href="'. $url .'">'. $url .'</a></p></div></div>';
+        }elseif($select == 2) {
+        }
 		$yejian = new Typecho_Widget_Helper_Form_Element_Text(
 					'yejian', NULL, '22',
 					_t('进入夜间模式时间：'),
