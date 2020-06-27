@@ -21,7 +21,7 @@ class CaNight_Plugin implements Typecho_Plugin_Interface {
     
 	public static function config(Typecho_Widget_Helper_Form $form) {
 	    //定义插件当前版本号
-        $client_version = 20200627;
+        $client_version = 20200628;
         //获取服务器上面的版本号
         $data = file_get_contents('https://api.bsgun.cn/AC.json');
         /*获取json数据*/
