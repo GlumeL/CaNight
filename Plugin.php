@@ -3,7 +3,7 @@
  * <strong style="color:#9e5df3;">Handsome主题的夜间模式插件<br/>问题反馈：<a target="_blank" href="https://www.bsgun.cn/684">插件主页</a></strong>
  * @package CaNight
  * @author Catalpa 
- * @version 1.3
+ * @version 1.4
  * @link https://www.bsgun.cn/684
  * */
 class CaNight_Plugin implements Typecho_Plugin_Interface {
