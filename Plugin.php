@@ -39,7 +39,7 @@ class CaNight_Plugin implements Typecho_Plugin_Interface {
         $styleUrl = Helper::options()->pluginUrl . '/CaNight/style.css';
         echo '<link rel="stylesheet" href=" '. $styleUrl .'"/>';
         if ($client_version < $server_version) {
-        	echo '<div class="container"><div class="inner"><span></span><h2 style="font-size: 1.5rem;color: #ff5555;text-align: center;">'. $title .'<p>'. $tips .'</p><p style="color: red;margin-left: 10px;">Guthub仓库：<a href="'. $url .'">'. $url .'</a></p></div></div>';
+        	echo '<div class="container"><div class="inner"><span></span><h2 style="font-size: 1.5rem;color: #ff5555;text-align: center;">'. $title .'<p>'. $tips .'</p><p style="color: red;margin-left: 10px;">&#12288Guthub仓库：<a href="'. $url .'">'. $url .'</a></p></div></div>';
         }elseif($select == 2) {
         }
 		$yejian = new Typecho_Widget_Helper_Form_Element_Text(
