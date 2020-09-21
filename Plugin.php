@@ -20,28 +20,8 @@ class CaNight_Plugin implements Typecho_Plugin_Interface {
     }
     
 	public static function config(Typecho_Widget_Helper_Form $form) {
-	    //定义插件当前版本号
-        $client_version = 202009210;
-        //获取服务器上面的版本号
-        $data = file_get_contents('https://api.bsgun.cn/AC.json');
-        /*获取json数据*/
-        $result = json_decode($data, true);
-        /*获取输出类型*/
-        $select = $result['status'];
-        //最新版本号
-        $server_version = $result['version'];
-        //下载地址
-        $url = $result['url'];
-        //头部信息
-        $title = $result['title'];
-        //更新说明
-        $tips = $result['tips'];
         $styleUrl = Helper::options()->pluginUrl . '/CaNight/css/style.css';
         echo '<link rel="stylesheet" href=" '. $styleUrl .'"/>';
-        if ($client_version < $server_version) {
-        	echo '<div class="container"><div class="inner"><span></span><h2 style="font-size: 1.5rem;color: #ff5555;text-align: center;">'. $title .'<p>'. $tips .'</p><p style="color: red;margin-left: 10px;">&#12288Guthub仓库：<a href="'. $url .'">'. $url .'</a></p></div></div>';
-        }elseif($select == 2) {
-        }
 		$yejian = new Typecho_Widget_Helper_Form_Element_Text(
 					'yejian', NULL, '22',
 					_t('进入夜间模式时间：'),
