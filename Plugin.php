@@ -3,7 +3,7 @@
  * <strong style="color:#9e5df3;">Handsome主题的夜间模式插件<br/>问题反馈：<a target="_blank" href="https://www.bsgun.cn/684">插件主页</a></strong>
  * @package CaNight
  * @author Catalpa 
- * @version 1.5
+ * @version 1.6
  * @link https://www.bsgun.cn/684
  * */
 class CaNight_Plugin implements Typecho_Plugin_Interface {
@@ -21,13 +21,13 @@ class CaNight_Plugin implements Typecho_Plugin_Interface {
     
 	public static function config(Typecho_Widget_Helper_Form $form) {
 	    //定义插件当前版本号
-        $client_version = 202006290;
+        $client_version = 202009210;
         //获取服务器上面的版本号
         $data = file_get_contents('https://api.bsgun.cn/AC.json');
         /*获取json数据*/
         $result = json_decode($data, true);
         /*获取输出类型*/
-        $select = $result['select'];
+        $select = $result['status'];
         //最新版本号
         $server_version = $result['version'];
         //下载地址
